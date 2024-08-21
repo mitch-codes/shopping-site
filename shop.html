@@ -297,12 +297,14 @@
                   {
 
                      item: "burger",
+                     img: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg",
                      cost: 220,
                      note: "deliciousness"
                   },
                   {
 
                      item: "burger",
+                     img: "burg.jpg",
                      cost: 220,
                      note: "deliciousness"
                   }
@@ -311,18 +313,18 @@
                 let itemlen = myCartJs.length;
                 
                 for (let y=0; y < itemlen; y++) {
-                       myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url(burg.jpg); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+'burger'+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+'$220'+'</div>'+'</div>';
+                       myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url('+myCartJs[y]["img"]+'); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+myCartJs[y]["item"]+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+'$220'+'</div>'+'</div>';
                 }
 
                 actShoppingCartTotal.innerHTML = '$ ' + myTotal;
 
                 for (let i=0; i < shoplen; i++) {
-                       myshop.innerHTML += '<div id="1" class="shopItem">'+'<div class="shopImg" style="background:url(burg.jpg); background-size:cover; background-position:center;">'+'<div class="shopDesc">'+'</div>'+'</div>'+'<div class="shopTitle">'+myJsonGallery[i]["item"]+'</div>'+'<div class="shopSize">'+myJsonGallery[i]["note"]+'</div>'+'<button class="check" onclick="addItem('+i+')">'+myJsonGallery[i]["cost"]+' KSH</button>'+'</div>';
+                       myshop.innerHTML += '<div id="1" class="shopItem">'+'<div class="shopImg" style="background:url('+myJsonGallery[i]["img"]+'); background-size:cover; background-position:center;">'+'<div class="shopDesc">'+'</div>'+'</div>'+'<div class="shopTitle">'+myJsonGallery[i]["item"]+'</div>'+'<div class="shopSize">'+myJsonGallery[i]["note"]+'</div>'+'<button class="check" onclick="addItem('+i+')">'+myJsonGallery[i]["cost"]+' KSH</button>'+'</div>';
                 }
                 function addItem(itemNumber) {
                      myCartJs.push(myJsonGallery[itemNumber]);
                      sessionStorage.setItem("items", JSON.stringify(myCartJs));
-                     myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url(burg.jpg); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+myJsonGallery[itemNumber]["item"]+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+myJsonGallery[itemNumber]["cost"]+'</div>'+'</div>';
+                     myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url('+myJsonGallery[itemNumber]["img"]+'); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+myJsonGallery[itemNumber]["item"]+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+myJsonGallery[itemNumber]["cost"]+'</div>'+'</div>';
                      myTotal = parseInt(myTotal) + parseInt(myJsonGallery[itemNumber]["cost"]);
                      sessionStorage.setItem("total", myTotal);
                      document.getElementById('shoppingTotalAmt').innerHTML = '$ '+ myTotal;
