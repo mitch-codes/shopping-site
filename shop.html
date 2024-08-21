@@ -1,0 +1,332 @@
+<html>
+    <head>
+        <title>
+            shopping cart
+        </title>
+        <style>
+            nav {
+                 //box-sizing: border-box;
+                 top: 0;
+                 width: 100%;
+                 padding: 10px;
+                 background: #111;
+                 position: fixed;
+                 z-index: 1;
+            }
+            body {
+                margin: 0;
+               padding: 0;
+            }
+            #shopGallery {
+               width: 90%;
+               min-height: 50px;
+               background: #111;
+               margin: 40px auto 10px auto;
+               display: table;
+            }
+            #shopGallery .shopItem {
+                   width: calc(25% - 10px);
+                   //height: 50px;
+                   background: #fff;
+                   float:left;
+                   margin: 5px;
+            }
+            #shopGallery .shopImg {
+                   width: 100%;
+                   height: 100px;
+            }
+             #shopGallery .shopTitle {
+                   box-sizing: border-box;
+                   width: 100%;
+                   padding: 10px;
+                   font-size: 15px;
+                   background: red;
+                   color: #111;
+                   height: 35px;
+            }
+            #shopGallery .shopSize {
+                   box-sizing: border-box;
+                   width: 100%;
+                   padding: 10px;
+                   font-size: 15px;
+                   background: red;
+                   color: #111;
+                   height: 35px;
+            }
+             .check {
+                   display: table;
+                   margin: 10px auto;
+                   width: 90%;
+             }
+             #actShoppingCartBox {
+                   width: 40%;
+                   background: red;
+                   top: 40px;
+                   right: 10px;
+                   //display: table;
+                   max-height: calc(100vh - 40px);
+                   position: fixed;
+                   z-index: 1;
+                   overflow-y: auto;
+             }
+             #actShoppingCart {
+                   width: 100%;
+             }
+              #actShoppingItem  {
+                    height: 60px;
+
+              }
+           
+             #actShoppingItem #actShoppingImg{
+                  width: 20%;
+                  height: 100%;
+                  background: #fff;
+                  float: left;
+             }
+             #actShoppingItem #actShoppingName{
+                  width: 50%;
+                  height: 100%;
+                  float: left;
+                  box-sizing: border-box;
+                  padding: 10px;
+                  border: 1px solid #111;
+                  text-align: center;
+                  //background: #fff;
+             }
+             #actShoppingItem #actShoppingQuantity{
+                  width: 10%;
+                  height: 100%;
+                  float: left;
+                  box-sizing: border-box;
+                  padding: 10px;
+                  border: 1px solid #111;
+                  padding: 10px;
+                  text-align: center;
+                  //background: #fff;
+             }
+             #actShoppingItem #actShoppingPrice{
+                  width: 20%;
+                  height: 100%;
+                  float: left;
+                  box-sizing: border-box;
+                  padding: 10px;
+                  border: 1px solid #111;
+                  padding: 10px;
+                  text-align: center;
+                  //background: #fff;
+             }
+             #actShoppingCartTotal {
+                   width: 100%;
+             }
+             #shoppingTotal {
+                height: 60px;
+                background: blue;
+             }
+             #shoppingTotal #shoppingTotalTitle{
+                  width: 80%;
+                  height: 100%;
+                  float: left;
+                  box-sizing: border-box;
+                  padding: 10px;
+                  border: 1px solid #111;
+                  padding: 10px;
+                  text-align: center;
+                  //background: #fff;
+             }
+             #shoppingTotal #shoppingTotalAmt{
+                  width: 20%;
+                  height: 100%;
+                  float: left;
+                  box-sizing: border-box;
+                  padding: 10px;
+                  border: 1px solid #111;
+                  padding: 10px;
+                  text-align: center;
+                  //background: #fff;
+             }
+        </style>
+    </head>
+    <body>
+
+
+        <nav></nav>
+        <div id="shopGallery">
+
+             <div id="1" class="shopItem">
+                  <div class="shopImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
+                       <div class="shopDesc">
+                       </div>
+                  </div>
+                  <div class="shopTitle">
+                       ITEM 1
+                  </div>
+                  <div class="shopSize">
+                        Small/ medium/ large
+                  </div>
+                   <button class="check">checkout</button>
+             </div>
+
+             <div id="1" class="shopItem">
+                  <div class="shopImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
+                       <div class="shopDesc">
+                       </div>
+                  </div>
+                  <div class="shopTitle">
+                       ITEM 1
+                  </div>
+                  <div class="shopSize">
+                        Small/ medium/ large
+                  </div>
+                   <button class="check">checkout</button>
+             </div>
+
+             <div id="1" class="shopItem">
+                  <div class="shopImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
+                       <div class="shopDesc">
+                       </div>
+                  </div>
+                  <div class="shopTitle">
+                       ITEM 1
+                  </div>
+                  <div class="shopSize">
+                        Small/ medium/ large
+                  </div>
+                   <button class="check">checkout</button>
+             </div>
+
+             <div id="1" class="shopItem">
+                  <div class="shopImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
+                       <div class="shopDesc">
+                       </div>
+                  </div>
+                  <div class="shopTitle">
+                       ITEM 1
+                  </div>
+                  <div class="shopSize">
+                        Small/ medium/ large
+                  </div>
+                   <button class="check" onclick="addItem(1)">checkout</button>
+             </div>
+
+        </div>
+        
+        <div id="actShoppingCartBox">
+        <div id="actShoppingCart">
+
+              <div id="actShoppingItem">
+                   <div id="actShoppingImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
+                   </div>
+                   <div id="actShoppingName" style="background:#fff;">
+                         TITLE
+                   </div>
+                   <div id="actShoppingQuantity" style="background:#fff;">
+                         QT
+                   </div>
+                   <div id="actShoppingPrice" style="background:#fff;">
+                         COST
+                   </div>
+              </div>
+               
+              
+              <!--<div id="actShoppingItem">
+                   <div id="actShoppingImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
+                   </div>
+                   <div id="actShoppingName">
+                         burger
+                   </div>
+                   <div id="actShoppingQuantity">
+                         3
+                   </div>
+                   <div id="actShoppingPrice">
+                         $220
+                   </div>
+              </div>
+
+              <div id="actShoppingItem">
+                   <div id="actShoppingImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
+                   </div>
+                   <div id="actShoppingName">
+                         burger
+                   </div>
+                   <div id="actShoppingQuantity">
+                         3
+                   </div>
+                   <div id="actShoppingPrice">
+                         $220
+                   </div>
+              </div>-->
+
+              <!--<div id="shoppingTotal">
+                   <div id="shoppingTotalTitle">
+                         TOTAL
+                   </div>
+                   <div id="shoppingTotalAmt">
+                         $300
+                   </div>
+              </div>-->
+
+        </div>
+
+        <div id="actShoppingCartTotal">
+                    <div id="shoppingTotal">
+                        <div id="shoppingTotalTitle">
+                                     TOTAL
+                        </div>
+                         <div id="shoppingTotalAmt">
+                              300
+                         </div>
+                   </div>
+         </div>
+
+        </div>
+
+        <script>
+                let myTotal = sessionStorage.getItem("total");
+                let myCartJs = JSON.parse(sessionStorage.getItem("items"));
+                if (myCartJs === null) {
+                      myCartJs = []; 
+                }
+                if (myTotal === null) {
+                   myTotal = 0;
+                }
+                let myshop = document.getElementById("shopGallery");
+                let myshopcart = document.getElementById("actShoppingCart");
+                let myshopBox = document.getElementById("actShoppingCartBox");
+                let actShoppingCartTotal = document.getElementById("shoppingTotalAmt");
+                let myJsonGallery = [
+                  {
+
+                     item: "burger",
+                     cost: 220,
+                     note: "deliciousness"
+                  },
+                  {
+
+                     item: "burger",
+                     cost: 220,
+                     note: "deliciousness"
+                  }
+                ];
+                let shoplen = myJsonGallery.length;
+                let itemlen = myCartJs.length;
+                
+                for (let y=0; y < itemlen; y++) {
+                       myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url(burg.jpg); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+'burger'+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+'$220'+'</div>'+'</div>';
+                }
+
+                actShoppingCartTotal.innerHTML = '$ ' + myTotal;
+
+                for (let i=0; i < shoplen; i++) {
+                       myshop.innerHTML += '<div id="1" class="shopItem">'+'<div class="shopImg" style="background:url(burg.jpg); background-size:cover; background-position:center;">'+'<div class="shopDesc">'+'</div>'+'</div>'+'<div class="shopTitle">'+myJsonGallery[0]["item"]+'</div>'+'<div class="shopSize">'+myJsonGallery[0]["note"]+'</div>'+'<button class="check" onclick="addItem(1)">'+myJsonGallery[0]["cost"]+' KSH</button>'+'</div>';
+                }
+                function addItem(itemNumber) {
+                     myCartJs.push(myJsonGallery[0]);
+                     sessionStorage.setItem("items", JSON.stringify(myCartJs));
+                     myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url(burg.jpg); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+'burger'+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+'$220'+'</div>'+'</div>';
+                     myTotal = parseInt(myTotal) + 300;
+                     sessionStorage.setItem("total", myTotal);
+                     document.getElementById('shoppingTotalAmt').innerHTML = '$ '+ myTotal;
+                }
+        </script>
+    </body>
+</html>
