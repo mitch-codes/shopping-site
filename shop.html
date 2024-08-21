@@ -317,13 +317,13 @@
                 actShoppingCartTotal.innerHTML = '$ ' + myTotal;
 
                 for (let i=0; i < shoplen; i++) {
-                       myshop.innerHTML += '<div id="1" class="shopItem">'+'<div class="shopImg" style="background:url(burg.jpg); background-size:cover; background-position:center;">'+'<div class="shopDesc">'+'</div>'+'</div>'+'<div class="shopTitle">'+myJsonGallery[0]["item"]+'</div>'+'<div class="shopSize">'+myJsonGallery[0]["note"]+'</div>'+'<button class="check" onclick="addItem(1)">'+myJsonGallery[0]["cost"]+' KSH</button>'+'</div>';
+                       myshop.innerHTML += '<div id="1" class="shopItem">'+'<div class="shopImg" style="background:url(burg.jpg); background-size:cover; background-position:center;">'+'<div class="shopDesc">'+'</div>'+'</div>'+'<div class="shopTitle">'+myJsonGallery[i]["item"]+'</div>'+'<div class="shopSize">'+myJsonGallery[i]["note"]+'</div>'+'<button class="check" onclick="addItem('+i+')">'+myJsonGallery[i]["cost"]+' KSH</button>'+'</div>';
                 }
                 function addItem(itemNumber) {
-                     myCartJs.push(myJsonGallery[0]);
+                     myCartJs.push(myJsonGallery[itemNumber]);
                      sessionStorage.setItem("items", JSON.stringify(myCartJs));
-                     myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url(burg.jpg); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+'burger'+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+'$220'+'</div>'+'</div>';
-                     myTotal = parseInt(myTotal) + 300;
+                     myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url(burg.jpg); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+myJsonGallery[itemNumber]["item"]+'</div><div id="actShoppingQuantity">'+'3'+'</div><div id="actShoppingPrice">'+myJsonGallery[itemNumber]["cost"]+'</div>'+'</div>';
+                     myTotal = parseInt(myTotal) + parseInt(myJsonGallery[itemNumber]["cost"]);
                      sessionStorage.setItem("total", myTotal);
                      document.getElementById('shoppingTotalAmt').innerHTML = '$ '+ myTotal;
                 }
