@@ -211,9 +211,7 @@
         </div>
         
         <div id="actShoppingCartBox">
-        <div id="actShoppingCart">
-
-              <div id="actShoppingItem">
+      <div id="actShoppingItem">
                    <div id="actShoppingImg" style="background:url('burg.jpg'); background-size:cover; background-position:center;">
                    </div>
                    <div id="actShoppingName" style="background:#fff;">
@@ -226,6 +224,11 @@
                          COST
                    </div>
               </div>
+
+              
+        <div id="actShoppingCart">
+
+            
                
               
               <!--<div id="actShoppingItem">
@@ -353,6 +356,11 @@
                                 myTotal = parseInt(myTotal) + parseInt(myJsonGallery[itemNumber]["cost"]);
                                 sessionStorage.setItem("total", myTotal);
                                 document.getElementById('shoppingTotalAmt').innerHTML = '$ '+ myTotal;
+                                let tempLenItm = myCartJs.length;
+                                myshopcart.innerHTML = '';
+                                for (let y=0; y < tempLenItm; y++) {
+                       myshopcart.innerHTML += '<div id="actShoppingItem"><div id="actShoppingImg" style="background:url('+myCartJs[y]["img"]+'); background-size:cover; background-position:center;"></div><div id="actShoppingName">'+myCartJs[y]["item"]+'</div><div id="actShoppingQuantity">'+myCartJs[y]["quantity"]+'</div><div id="actShoppingPrice">$ '+myCartJs[y]["cost"]+'</div>'+'</div>';
+                                 }
                                 return 0;
                          }
                      }
